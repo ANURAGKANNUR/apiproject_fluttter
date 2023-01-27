@@ -27,40 +27,39 @@ class DisplayPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
 
-      appBar: AppBar(
-        title: Text("Details"),
-
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-
+      // appBar: AppBar(
+      //   title: Text("Details"),
+      //
+      // ),
+      body: NestedScrollView(
+        body: Column(
+          children: [
+            Expanded(
               child: Column(
                  mainAxisAlignment: MainAxisAlignment.start,
               children: [
                   SizedBox(height:30),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: RatingBarIndicator(
-                    rating: rating,
-                    itemBuilder: (context, index) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                ),
-                itemCount: 5,
-                itemSize: 23.0,
-                    ),
-                  ),
+                //   Align(
+                //     alignment: Alignment.topRight,
+                //     child: RatingBarIndicator(
+                //     rating: rating,
+                //     itemBuilder: (context, index) => const Icon(
+                //     Icons.star,
+                //     color: Colors.amber,
+                // ),
+                // itemCount: 5,
+                // itemSize: 23.0,
+                //     ),
+                //   ),
                   SizedBox(height: 30),
-                  Hero(
-                    tag: "image1",
-                    child: Image(image: NetworkImage(
-                      image
-                    ),
-                    height: 200,
-                    width: 250,),
-                  ),
+                  // Hero(
+                  //   tag: "image1",
+                  //   child: Image(image: NetworkImage(
+                  //     image
+                  //   ),
+                  //   height: 200,
+                  //   width: 250,),
+                  // ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(26, 20, 26, 0),
                   child: ExpandableText(discription!,
@@ -107,58 +106,98 @@ class DisplayPage extends StatelessWidget {
               ],
               ),
             ),
-          ),
 
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: (){
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: (){
 
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white38,
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),),
-                  minimumSize:const Size(200.0, 80.0),
-                ), child: const Text("Add to Cart ",style:
-              TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.black
-              ),),
-              ),
-              ElevatedButton(
-                onPressed: (){
-                  Navigator.of(context).pop(MaterialPageRoute(
-                    builder: (context)=>const Display()
-                  ));
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("order placed successfully",
-                    style: TextStyle(
-                      color: Colors.green
-                    ),),)
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),),
-                  minimumSize:Size(200.0, 80.0),
-
-                ),
-                child: const Text("Buy Now",style: TextStyle(
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white38,
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),),
+                    minimumSize:const Size(200.0, 80.0),
+                  ), child: const Text("Add to Cart ",style:
+                TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 20
+                    fontSize: 20,
+                    color: Colors.black
                 ),),
-              )
+                ),
+                ElevatedButton(
+                  onPressed: (){
+                    Navigator.of(context).pop(MaterialPageRoute(
+                      builder: (context)=>const Display()
+                    ));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("order placed successfully",
+                      style: TextStyle(
+                        color: Colors.green
+                      ),),)
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),),
+                    minimumSize:Size(200.0, 80.0),
 
-            ],
-          ),
-          const SizedBox(height: 10,)
-        ],
+                  ),
+                  child: const Text("Buy Now",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                  ),),
+                )
+
+              ],
+            ),
+            const SizedBox(height: 10,)
+          ],
+        ), headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return[
+            SliverAppBar(
+                expandedHeight:230 ,
+                iconTheme: IconThemeData(
+                  color: Colors.black
+                ),
+                backgroundColor: Colors.white,
+              flexibleSpace:FlexibleSpaceBar(
+                background: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(height:30,),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: RatingBarIndicator(
+                        rating: rating,
+                        itemBuilder: (context, index) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        itemCount: 5,
+                        itemSize: 23.0,
+                      ),
+                    ),
+                    Hero(
+                      tag: "image1",
+                      child: Image(image: NetworkImage(
+                          image
+                      ),
+                        height: 200,
+                        width: 250,),
+                    ),
+
+                  ],
+                ),
+              )
+            )
+          ];
+      },
       )
+
     );
   }
 }

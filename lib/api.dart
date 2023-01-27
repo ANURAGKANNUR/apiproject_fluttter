@@ -69,8 +69,8 @@ class _apitestState extends State<apitest> {
             });
           },
               icon:isGrid
-              ?Icon(Icons.list,color: Colors.white,)
-              :Icon(Icons.grid_view,color: Colors.white,),
+              ?const Icon(Icons.list,color: Colors.white,)
+              :const Icon(Icons.grid_view,color: Colors.white,),
           )
         ],
       ),
@@ -78,103 +78,101 @@ class _apitestState extends State<apitest> {
         ?ListView.builder(
           itemCount: _products.length,
           itemBuilder: (context, index) {
-            return Container(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Row(
-                    children: [
-                      Card(
-                        color: Colors.white38,
-                        // margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: InkWell(
-                            onTap: (){
-                              // int qt=_products[index].rating.count;
-                              Navigator.of(context).push(MaterialPageRoute(
-                                fullscreenDialog: true,
-                                  builder: (context)=> DisplayPage(id:_products[index].id,
-                                  title:_products[index].title,
-                                      image:_products[index].image,
-                                    qty:_products[index].rating?.count.toString(),
-                                    price:_products[index].price.toString(),
-                                    rating:_products[index].rating!.rate.toDouble(),
-                                    discription:_products[index].description,
-                                  )
-                              ));
-                            },
-                            child: Hero(
-                              tag: "$index",
-                              child: Image.network(
-                                _products[index].image,
-                                height: 90,
-                                width: 120,
-                              ),
+            return Column(
+              children: [
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    Card(
+                      color: Colors.white38,
+                      // margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: InkWell(
+                          onTap: (){
+                            // int qt=_products[index].rating.count;
+                            Navigator.of(context).push(MaterialPageRoute(
+                              fullscreenDialog: true,
+                                builder: (context)=> DisplayPage(id:_products[index].id,
+                                title:_products[index].title,
+                                    image:_products[index].image,
+                                  qty:_products[index].rating?.count.toString(),
+                                  price:_products[index].price.toString(),
+                                  rating:_products[index].rating!.rate.toDouble(),
+                                  discription:_products[index].description,
+                                )
+                            ));
+                          },
+                          child: Hero(
+                            tag: "$index",
+                            child: Image.network(
+                              _products[index].image,
+                              height: 90,
+                              width: 120,
                             ),
                           ),
                         ),
-                        //         height: 150,
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(_products[index].title,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    child: Text(
-                                  '\u{20B9}${_products[index].price}',
-                                  textAlign: TextAlign.left,
-                                )),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      //         height: 150,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(_products[index].title,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Expanded(
                                   child: Text(
-                                    "x${_products[index].rating?.count}",
-                                    style: const TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "${_products[index].rating?.rate}",
+                                '\u{20B9}${_products[index].price}',
+                                textAlign: TextAlign.left,
+                              )),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                child: Text(
+                                  "x${_products[index].rating?.count}",
                                   style: const TextStyle(
                                     color: Colors.grey,
                                   ),
                                 ),
-                              ],
-                            )
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${_products[index].rating?.rate}",
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
+                    ),
 
-                    ],
-                  )
-                ],
-              ),
+                  ],
+                )
+              ],
             );
           })
           :GridView.builder(
         itemCount: _products.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2
         ),
         itemBuilder: (_,index){
