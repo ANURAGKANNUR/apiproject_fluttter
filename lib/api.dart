@@ -21,7 +21,7 @@ class _apitestState extends State<apitest> {
 
   Future<void> getdata() async {
     try{
-      CircularProgressIndicator();
+      const CircularProgressIndicator();
       final response =
       await http.get(Uri.parse('https://fakestoreapi.com/products'));
 
@@ -183,7 +183,6 @@ class _apitestState extends State<apitest> {
               child: Center(
                 child: InkWell(
                   onTap: (){
-                    heroTag:null;
                     Navigator.of(context).push(MaterialPageRoute(
                       fullscreenDialog: true,
                         builder: (context)=> DisplayPage(id:_products[index].id,

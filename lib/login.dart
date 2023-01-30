@@ -44,7 +44,7 @@ class _LoginpageState extends State<Loginpage> {
       appBar: AppBar(
 
         title: Center(
-          child:Text("FACEBOOK",style: TextStyle(
+          child:Text("APP",style: TextStyle(
             fontSize:30
           ),)
         )
@@ -55,12 +55,23 @@ class _LoginpageState extends State<Loginpage> {
         child: Container(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text("Login",style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w600,
-            ),),
+        SizedBox(height: 30,),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text("Login",style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w600,
+              ),),
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+                child: Text("Please sign in to continue",
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  
+                ),)),
             TextFormField(
               controller:usr,
               decoration: InputDecoration(
@@ -82,10 +93,12 @@ class _LoginpageState extends State<Loginpage> {
                 ]
               ),
             ),
+
             SizedBox(height: 50,),
             ElevatedButton(
                 onPressed:navigatenextpage,
-                 child: Text("Signin"))
+                 child: Text("Signin")),
+
 
           ],
         ),

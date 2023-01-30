@@ -1,3 +1,4 @@
+import 'package:apiproject_fluttter/registration.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: apitest(),
+      home: Registration(),
     );
   }
 }
