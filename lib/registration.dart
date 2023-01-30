@@ -16,8 +16,19 @@ class Registration extends StatelessWidget {
     return Scaffold(
 appBar: AppBar(
   title: Text("Ecommerce application"),
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(
+      bottom: Radius.circular(10)
+    )
+  ),
 ),
       body: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(50),
+            topLeft: Radius.circular(50)
+          )
+        ),
         height: MediaQuery.of(context).size.height,
 
         // color: Colors.yellow,
