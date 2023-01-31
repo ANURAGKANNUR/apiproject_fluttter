@@ -1,51 +1,31 @@
+
+import 'package:apiproject_fluttter/product%20model.dart';
 import 'package:flutter/material.dart';
 
 class Navigation extends StatelessWidget {
-  const Navigation({Key? key}) : super(key: key);
+  Navigation({Key? key}) : super(key: key);
+  int itemcount = Category.values.length;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Container(
-          height: double.infinity,
-        color: Colors.red,
-        child: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const [
-              SizedBox(
-                height: 80,
-                child: DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Text("settings",style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
-                  ),),
-                ),
 
-              ),
-              ListTile(
-
-                title: Text("Categories",style:
-                  TextStyle(
-                    fontSize: 20,
-                  ),),
-              ),
-              Spacer(),
-              ListTile(
-                title: Text("Help center"),
-              )
-            ],
-          ),
+        appBar: AppBar(
+          title: Text("Categories"),
         ),
-      ),
+        body: ListView.builder(
+            // scrollDirection: Axis.vertical,
+            // shrinkWrap: true,
+            itemCount: Category.values.length,
+            itemBuilder: (context, index) {
+              return Container(
+                padding: EdgeInsets.fromLTRB(0,25, 0, 0),
+                height: 50,
+                child: Text(Category.values[index].name),
+              );
+            }
+        )
     );
   }
 }
-
-
-
