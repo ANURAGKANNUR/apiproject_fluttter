@@ -26,7 +26,7 @@ class _LoginpageState extends State<Loginpage> {
   {
     if(cred.username==usr.text && cred.paswword==pwd.text){
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context)=>const apitest()
+        builder: (context)=>const ApiTest()
       ));
     }
     else{

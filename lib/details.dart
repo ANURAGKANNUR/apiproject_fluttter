@@ -169,16 +169,19 @@ class DisplayPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(height:30,),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: RatingBarIndicator(
-                        rating: rating,
-                        itemBuilder: (context, index) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0,10,0,0),
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: RatingBarIndicator(
+                          rating: rating,
+                          itemBuilder: (context, index) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          itemCount: 5,
+                          itemSize: 23.0,
                         ),
-                        itemCount: 5,
-                        itemSize: 23.0,
                       ),
                     ),
                     Hero(
