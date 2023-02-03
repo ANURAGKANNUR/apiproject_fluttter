@@ -170,7 +170,7 @@ class DisplayPage extends StatelessWidget {
                   children: [
                     SizedBox(height:30,),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(0,10,0,0),
+                      padding: const EdgeInsets.fromLTRB(0,24,0,0),
                       child: Align(
                         alignment: Alignment.topRight,
                         child: RatingBarIndicator(
